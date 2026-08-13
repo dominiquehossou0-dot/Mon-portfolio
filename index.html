@@ -7,91 +7,106 @@
 <meta name="description" content="Dominique Akpiti HOSSOU">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --deep: #0B3B47;
-    --river: #1B6E82;
-    --gold: #C4872F;
-    --paper: #F4F7F6;
-    --paper-tint: #EEF3F2;
-    --card: #FFFFFF;
-    --ink: #142B31;
-    --ink-soft: #4E6167;
-    --meta: #8A9CA1;
-    --line: #DCE6E5;
-    --radius: 6px;
+    --ink:        #1C2B1E;
+    --ink-soft:   #4A5A4C;
+    --teal:       #3C6E5A;
+    --teal-deep:  #24463A;
+    --clay:       #9C6B34;
+    --clay-soft:  #B98849;
+    --paper:      #EDE6D6;
+    --paper-2:    #E3D9C4;
+    --card:       #F8F4E9;
+    --line:       #CBBFA0;
+    --meta:       #7C7660;
+    --radius: 3px;
   }
 
   *{ box-sizing:border-box; margin:0; padding:0; }
   html{ scroll-behavior:smooth; }
 
   body{
-    background: var(--paper);
+    background:
+      radial-gradient(ellipse 900px 500px at 12% -10%, rgba(60,110,90,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 20%, rgba(156,107,52,0.08), transparent 55%),
+      var(--paper);
     color: var(--ink);
-    font-family:'Inter', sans-serif;
-    line-height: 1.65;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 17px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
 
   a{ color:inherit; text-decoration:none; }
   img{ max-width:100%; display:block; }
 
-  .wrap{ max-width: 980px; margin:0 auto; padding: 0 28px; }
+  .wrap{ max-width: 1040px; margin:0 auto; padding: 0 32px; }
 
-  h1,h2,h3{ font-family:'Spectral', serif; }
+  h1,h2,h3{ font-family:'Times New Roman', Times, serif; font-weight: 700; letter-spacing: 0; }
 
-  .eyebrow{
+  .label{
     font-family:'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: .06em;
+    font-size: 11px;
+    letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--river);
+    color: var(--teal);
   }
+
+  ::selection{ background: var(--clay-soft); color: #fff; }
 
   /* ---------- NAV ---------- */
   nav{
-    position: sticky; top:0; z-index: 30;
-    background: rgba(244,247,246,0.92);
-    backdrop-filter: blur(6px);
+    position: sticky; top:0; z-index: 40;
+    background: rgba(246,243,234,0.9);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
   }
   nav .wrap{
     display:flex; align-items:center; justify-content:space-between;
-    padding: 14px 28px;
+    padding: 16px 32px;
   }
-  .nav-brand{ display:flex; align-items:center; gap:10px; }
-  .nav-mark{
-    width: 26px; height: 26px;
-    flex-shrink: 0;
-  }
+  .nav-brand{ display:flex; align-items:center; gap:11px; }
+  .nav-mark{ width: 24px; height: 24px; flex-shrink: 0; }
   .nav-name{
-    font-family:'Spectral', serif;
+    font-family:'Times New Roman', Times, serif;
     font-weight:600;
-    font-size: 1.02rem;
-    color: var(--deep);
+    font-size: 0.98rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
   }
-  .nav-links{ display:flex; gap: 20px; align-items:center; }
+  .nav-links{ display:flex; gap: 26px; align-items:center; }
   .nav-links a{
     font-family:'JetBrains Mono', monospace;
-    font-size: 12px;
+    font-size: 11.5px;
+    letter-spacing: .03em;
     color: var(--ink-soft);
     transition: color .15s ease;
     white-space: nowrap;
+    position: relative;
+    padding-bottom: 2px;
   }
-  .nav-links a:hover{ color: var(--river); }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; right:0; bottom:-3px; height:1px;
+    background: var(--clay); transform: scaleX(0); transform-origin: left;
+    transition: transform .2s ease;
+  }
+  .nav-links a:hover{ color: var(--ink); }
+  .nav-links a:hover::after{ transform: scaleX(1); }
 
   .nav-toggle{
     display:none;
     width: 34px; height: 34px;
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: var(--radius);
     background: var(--card);
     align-items:center; justify-content:center;
     cursor: pointer;
   }
-  .nav-toggle svg{ width:16px; height:16px; color: var(--deep); }
+  .nav-toggle svg{ width:16px; height:16px; color: var(--ink); }
 
   @media (max-width: 860px){
     .nav-links{
@@ -101,105 +116,129 @@
       border-bottom: 1px solid var(--line);
       flex-direction: column;
       align-items: flex-start;
-      gap: 4px;
-      padding: 14px 28px 20px;
+      gap: 2px;
+      padding: 14px 32px 22px;
       display: none;
     }
     .nav-links.open{ display:flex; }
-    .nav-links a{ font-size: 13px; padding: 8px 0; width:100%; }
+    .nav-links a{ font-size: 13px; padding: 9px 0; width:100%; }
     .nav-toggle{ display:flex; }
   }
 
   /* ---------- HERO ---------- */
   header.hero{
-    padding: 76px 0 60px;
     position: relative;
     overflow: hidden;
+    padding: 0 0 0;
+    border-bottom: 1px solid var(--line);
   }
 
-  .contours{
+  .hero-topo{
     position: absolute;
     inset: 0;
     z-index: 0;
-    opacity: .5;
+    opacity: .9;
     pointer-events: none;
   }
 
-  .hero .wrap{
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 44px;
-    align-items: center;
+  .hero-inner{
+    position: relative; z-index: 1;
+    padding: 88px 0 72px;
   }
 
-  .photo{
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--river);
-    box-shadow: 0 10px 28px rgba(11,59,71,0.14);
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1fr 260px;
+    gap: 48px;
+    align-items: end;
   }
 
   h1.name{
-    font-size: clamp(2rem, 4.4vw, 2.7rem);
+    font-size: clamp(2.3rem, 5vw, 3.4rem);
     font-weight: 700;
-    color: var(--deep);
-    line-height: 1.1;
+    color: var(--ink);
+    line-height: 1.05;
+    max-width: 14ch;
   }
 
   .role{
-    margin-top: 10px;
-    font-size: 1.05rem;
+    margin-top: 18px;
+    font-size: 1.08rem;
     color: var(--ink-soft);
-    max-width: 48ch;
+    max-width: 46ch;
   }
-
-  .coord-line{
-    margin-top: 14px;
-    font-family:'JetBrains Mono', monospace;
-    font-size: 12.5px;
-    color: var(--gold);
-    display:flex; align-items:center; gap:8px;
-  }
-  .coord-line svg{ width:13px; height:13px; flex-shrink:0; }
 
   .hero-cta{
-    margin-top: 26px;
-    display:flex; gap:12px; flex-wrap:wrap;
+    margin-top: 30px;
+    display:flex; gap:14px; flex-wrap:wrap;
   }
   .btn{
     font-family:'JetBrains Mono', monospace;
     font-size: 12.5px;
-    padding: 11px 20px;
+    letter-spacing: .02em;
+    padding: 12px 22px;
     border-radius: 999px;
-    border: 1px solid var(--river);
+    border: 1px solid var(--teal-deep);
     transition: all .15s ease;
   }
-  .btn.primary{ background: var(--river); color: #fff; }
-  .btn.primary:hover{ background: var(--deep); border-color: var(--deep); transform: translateY(-1px); }
-  .btn.ghost{ color: var(--river); }
-  .btn.ghost:hover{ background: var(--card); transform: translateY(-1px); }
+  .btn.primary{ background: var(--teal-deep); color: #fff; }
+  .btn.primary:hover{ background: var(--ink); border-color: var(--ink); transform: translateY(-1px); }
+  .btn.ghost{ color: var(--teal-deep); border-color: var(--line); }
+  .btn.ghost:hover{ border-color: var(--teal-deep); transform: translateY(-1px); }
 
-  @media (max-width: 640px){
-    .hero .wrap{ grid-template-columns: 1fr; text-align:center; }
-    .photo{ margin: 0 auto; }
-    .coord-line{ justify-content:center; }
-    .hero-cta{ justify-content:center; }
+  /* benchmark plate */
+  .plate{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px 22px 18px;
+    position: relative;
+  }
+  .plate::before{
+    content:'';
+    position:absolute; top:12px; right:12px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--clay);
+  }
+  .plate img.photo{
+    width: 100%; aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    filter: grayscale(12%);
+  }
+  .plate-row{
+    display:flex; justify-content:space-between; gap: 10px;
+    padding: 8px 0;
+    border-top: 1px dashed var(--line);
+    font-size: .8rem;
+  }
+  .plate-row:first-of-type{ border-top:none; }
+  .plate-row .k{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--meta);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+  .plate-row .v{ color: var(--ink); text-align:right; font-size: .82rem; }
+
+  @media (max-width: 760px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .plate{ max-width: 280px; }
   }
 
   /* ---------- SECTIONS ---------- */
-  section{ padding: 60px 0; border-bottom: 1px solid var(--line); }
+  section{ padding: 76px 0; border-bottom: 1px solid var(--line); }
   section:last-of-type{ border-bottom:none; }
-  section.tint{ background: var(--paper-tint); }
+  section.tint{ background: var(--paper-2); }
 
+  .section-head{ margin-bottom: 40px; max-width: 60ch; }
   .section-title{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 600;
-    color: var(--deep);
-    margin-top: 6px;
-    margin-bottom: 28px;
+    color: var(--ink);
+    margin-top: 8px;
   }
 
   .reveal{
@@ -217,150 +256,179 @@
   .about-grid{
     display:grid;
     grid-template-columns: 1.3fr 1fr;
-    gap: 40px;
+    gap: 48px;
   }
-  .about-text p{ color: var(--ink-soft); margin-bottom: 14px; }
+  .about-text p{ color: var(--ink-soft); margin-bottom: 16px; }
   .about-text p:last-child{ margin-bottom:0; }
+  .about-text p::first-letter{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: var(--teal-deep);
+    float: left;
+    line-height: .8;
+    margin: 4px 6px 0 0;
+  }
 
   .facts{
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 22px;
+    border-left: 2px solid var(--teal);
+    padding-left: 22px;
   }
   .fact{
-    display:flex; justify-content:space-between; gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px dashed var(--line);
-    font-size: .9rem;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
   }
   .fact:last-child{ border-bottom:none; }
   .fact .k{
+    display:block;
     font-family:'JetBrains Mono', monospace;
-    font-size: 11px;
+    font-size: 10.5px;
     color: var(--meta);
     text-transform: uppercase;
-    letter-spacing: .04em;
+    letter-spacing: .05em;
+    margin-bottom: 4px;
   }
-  .fact .v{ color: var(--ink); text-align:right; }
+  .fact .v{ color: var(--ink); font-size: .95rem; }
 
   @media (max-width: 720px){
     .about-grid{ grid-template-columns: 1fr; }
   }
 
-  /* ---------- TIMELINE ---------- */
-  .timeline{ display:flex; flex-direction:column; }
-  .tl-item{
-    display:grid;
-    grid-template-columns: 130px 1fr;
-    gap: 20px;
-    padding: 18px 0;
-    border-bottom: 1px solid var(--line);
+  /* ---------- TIMELINE (profil hydrographique) ---------- */
+  .river-timeline{
+    position: relative;
+    padding-left: 26px;
   }
-  .tl-item:last-child{ border-bottom:none; }
+  .river-timeline::before{
+    content:'';
+    position:absolute; left: 4px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--teal), var(--line) 92%);
+  }
+  .tl-item{
+    position: relative;
+    padding: 0 0 34px 22px;
+  }
+  .tl-item:last-child{ padding-bottom: 0; }
+  .tl-item::before{
+    content:'';
+    position:absolute; left: -22px; top: 6px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--teal);
+  }
+  .tl-item.tint-marker::before{ background: var(--paper-2); }
   .tl-year{
     font-family:'JetBrains Mono', monospace;
-    font-size: 12.5px;
-    color: var(--river);
-    padding-top: 3px;
+    font-size: 12px;
+    color: var(--clay);
+    display:block;
+    margin-bottom: 4px;
   }
-  .tl-body h3{ font-size: 1.02rem; font-weight: 600; color: var(--ink); }
+  .tl-body h3{ font-size: 1.05rem; font-weight: 600; color: var(--ink); }
   .tl-body .place{
     font-family:'JetBrains Mono', monospace;
-    font-size: 12px;
+    font-size: 11.5px;
     color: var(--meta);
-    margin-top: 2px;
+    margin-top: 3px;
   }
 
-  @media (max-width: 560px){
-    .tl-item{ grid-template-columns: 1fr; gap: 4px; }
-  }
-
-  /* ---------- SKILLS ---------- */
-  .skills-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  /* ---------- SKILLS (gauge bars) ---------- */
+  .skills-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 28px; }
   .skill-card{
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 24px;
-    transition: border-color .15s ease, box-shadow .15s ease;
+    padding: 28px;
   }
-  .skill-card:hover{ border-color: var(--river); box-shadow: 0 6px 18px rgba(11,59,71,0.06); }
-  .skill-card h3{ font-size: 1.1rem; color: var(--deep); margin-bottom: 4px; }
+  .skill-card h3{ font-size: 1.08rem; color: var(--ink); margin-bottom: 3px; }
   .skill-card .sub{
     font-family:'JetBrains Mono', monospace;
-    font-size: 11px; color: var(--meta); margin-bottom: 18px; display:block;
+    font-size: 10.5px; color: var(--meta); margin-bottom: 22px; display:block;
+    text-transform: uppercase; letter-spacing: .05em;
   }
-  .skill-row{
-    display:flex; justify-content:space-between; align-items:center;
-    padding: 9px 0; border-bottom: 1px solid var(--line); font-size: .92rem;
+  .gauge{ margin-bottom: 16px; }
+  .gauge:last-child{ margin-bottom: 0; }
+  .gauge-top{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size: .88rem; margin-bottom: 6px;
   }
-  .skill-row:last-child{ border-bottom:none; }
-  .dots{ display:flex; gap: 4px; }
-  .dot{ width: 7px; height:7px; border-radius:50%; background: var(--line); }
-  .dot.on{ background: var(--river); }
+  .gauge-top .glabel{ color: var(--ink); }
+  .gauge-top .gval{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10.5px; color: var(--meta);
+  }
+  .gauge-track{
+    height: 4px; background: var(--paper-2); border-radius: 2px;
+    overflow: hidden; position: relative;
+  }
+  .gauge-fill{
+    height: 100%; background: var(--teal); border-radius: 2px;
+  }
 
   @media (max-width: 720px){ .skills-grid{ grid-template-columns: 1fr; } }
 
   /* ---------- LANGUES + CENTRES D'INTERET ---------- */
-  .side-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .side-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 28px; }
   .tag-card{
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 24px;
+    padding: 26px 28px;
   }
-  .tag-card h3{ font-size: 1.05rem; color: var(--deep); margin-bottom: 16px; }
-  .tag-list{ display:flex; flex-wrap:wrap; gap: 8px; }
+  .tag-card h3{ font-size: 1rem; color: var(--ink); margin-bottom: 16px; font-weight: 600;}
+  .tag-list{ display:flex; flex-wrap:wrap; gap: 9px; }
   .tag-list span{
     font-family:'JetBrains Mono', monospace;
-    font-size: 12px; color: var(--deep);
+    font-size: 11.5px; color: var(--teal-deep);
     background: var(--paper); border: 1px solid var(--line);
-    padding: 6px 13px; border-radius: 999px;
+    padding: 6px 14px; border-radius: 999px;
   }
 
   @media (max-width: 640px){ .side-grid{ grid-template-columns: 1fr; } }
 
   /* ---------- PROJECTS ---------- */
   .project{
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 26px;
-    margin-bottom: 18px;
-    transition: border-color .15s ease, box-shadow .15s ease;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--line);
   }
-  .project:hover{ border-color: var(--river); box-shadow: 0 6px 18px rgba(11,59,71,0.07); }
-  .project:last-child{ margin-bottom:0; }
+  .project:first-child{ padding-top: 0; }
+  .project:last-child{ border-bottom:none; padding-bottom: 0; }
 
-  .project-top{
-    display:flex; justify-content:space-between; align-items:baseline;
-    gap: 12px; flex-wrap:wrap; margin-bottom: 8px;
-  }
-  .project-name{ font-family:'Spectral', serif; font-weight:600; font-size:1.2rem; color: var(--deep); }
   .project-tag{
     font-family:'JetBrains Mono', monospace;
-    font-size: 11px; color: var(--river);
-    border: 1px solid var(--river);
-    padding: 2px 10px; border-radius: 999px;
+    font-size: 10.5px; color: var(--clay);
+    text-transform: uppercase; letter-spacing: .05em;
   }
-  .project-desc{ color: var(--ink-soft); margin-bottom: 14px; font-size: .95rem; }
-  .stack{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom: 14px; }
+  .project-name{
+    font-family:'Times New Roman', Times, serif; font-weight:600; font-size:1.4rem; color: var(--ink);
+    margin-top: 6px;
+  }
+  .project-desc{ color: var(--ink-soft); margin: 14px 0; font-size: .96rem; max-width: 56ch; }
+  .stack{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 16px; }
   .stack span{
     font-family:'JetBrains Mono', monospace;
     font-size: 11px; color: var(--meta);
-    background: var(--paper); border: 1px solid var(--line);
-    padding: 3px 9px; border-radius: 4px;
+    background: var(--paper-2); border: 1px solid var(--line);
+    padding: 4px 10px; border-radius: 4px;
   }
   .project-link{
     font-family:'JetBrains Mono', monospace;
-    font-size: 12.5px; color: var(--deep);
-    border-bottom: 1px solid var(--deep);
+    font-size: 12.5px; color: var(--teal-deep);
+    border-bottom: 1px solid var(--teal-deep);
+    padding-bottom: 1px;
   }
-  .project-link:hover{ color: var(--river); border-color: var(--river); }
+  .project-link:hover{ color: var(--clay); border-color: var(--clay); }
+
+  @media (max-width: 640px){
+    .project{ grid-template-columns: 1fr; gap: 10px; }
+  }
 
   /* ---------- ATTESTATIONS ---------- */
-  .cert-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 640px; }
+  .cert-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .cert-item{
     background: var(--card);
     border: 1px solid var(--line);
@@ -368,34 +436,41 @@
     overflow: hidden;
     transition: border-color .15s ease, box-shadow .15s ease;
   }
-  .cert-item:hover{ border-color: var(--river); box-shadow: 0 6px 18px rgba(11,59,71,0.07); }
+  .cert-item:hover{ border-color: var(--teal); box-shadow: 0 10px 24px rgba(14,34,41,0.08); }
   .cert-img{ width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border-bottom: 1px solid var(--line); }
-  .cert-caption{ padding: 14px 16px; display:flex; flex-direction:column; gap: 4px; }
-  .cert-title{ font-size: .88rem; font-weight: 500; color: var(--ink); }
-  .cert-source{ font-family:'JetBrains Mono', monospace; font-size: 11px; color: var(--meta); }
+  .cert-caption{ padding: 16px 18px; display:flex; flex-direction:column; gap: 5px; }
+  .cert-title{ font-size: .88rem; font-weight: 500; color: var(--ink); line-height: 1.4; }
+  .cert-source{ font-family:'JetBrains Mono', monospace; font-size: 10.5px; color: var(--meta); }
 
-  @media (max-width: 640px){ .cert-grid{ grid-template-columns: 1fr; } }
+  @media (max-width: 860px){ .cert-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .cert-grid{ grid-template-columns: 1fr; } }
 
   /* ---------- CONTACT ---------- */
+  .contact-grid{
+    display:grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start;
+  }
   .contact-cta{
-    font-size: 1.6rem; font-weight: 600; color: var(--deep);
-    max-width: 22ch; margin-bottom: 24px;
+    font-size: 1.9rem; font-weight: 600; color: var(--ink);
+    max-width: 20ch; line-height: 1.2;
   }
-  .contact-list{ display:flex; flex-direction:column; gap: 12px; }
-  .contact-list a, .contact-list span{
+  .contact-list{ display:flex; flex-direction:column; }
+  .contact-list a, .contact-list .row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding: 14px 0; border-bottom: 1px solid var(--line);
     font-family:'JetBrains Mono', monospace;
-    font-size: 14px; display:inline-flex; gap: 12px; align-items:center; width: fit-content;
+    font-size: 13.5px;
   }
-  .contact-list a{ border-bottom: 1px solid transparent; }
-  .contact-list a:hover{ color: var(--river); border-color: var(--river); }
-  .contact-list .k{ color: var(--meta); width: 90px; display:inline-block; }
+  .contact-list a:hover{ color: var(--teal); }
+  .contact-list .k{ color: var(--meta); font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em; }
 
   footer{
-    padding: 36px 0 56px;
+    padding: 30px 0 48px;
     font-family:'JetBrains Mono', monospace;
-    font-size: 12px; color: var(--meta);
+    font-size: 11.5px; color: var(--meta);
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
   }
+
+  @media (max-width: 720px){ .contact-grid{ grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -403,12 +478,12 @@
 <nav>
   <div class="wrap">
     <div class="nav-brand">
-      <svg class="nav-mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="13" cy="13" r="12" stroke="#1B6E82" stroke-width="1.4"/>
-        <path d="M5 13c2-2.4 4-2.4 6 0s4 2.4 6 0 4-2.4 6 0" stroke="#1B6E82" stroke-width="1.4" fill="none"/>
-        <path d="M5 17c2-2.4 4-2.4 6 0s4 2.4 6 0 4-2.4 6 0" stroke="#C4872F" stroke-width="1.2" fill="none" opacity="0.6"/>
+      <svg class="nav-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="11" stroke="#1D6B76" stroke-width="1.3"/>
+        <path d="M4 12c1.8-2.1 3.6-2.1 5.4 0s3.6 2.1 5.4 0 3.6-2.1 5.4 0" stroke="#1D6B76" stroke-width="1.3" fill="none"/>
+        <path d="M4 15.6c1.8-2.1 3.6-2.1 5.4 0s3.6 2.1 5.4 0 3.6-2.1 5.4 0" stroke="#B4703A" stroke-width="1.1" fill="none" opacity="0.55"/>
       </svg>
-      <span class="nav-name">Dominique Akpiti HOSSOU</span>
+      <span class="nav-name">Dominique Akpiti Hossou</span>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -426,32 +501,38 @@
 </nav>
 
 <header class="hero">
-  <svg class="contours" viewBox="0 0 980 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M-20,60 C150,20 300,100 480,60 C660,20 800,90 1000,50" stroke="#1B6E82" stroke-width="1" fill="none" opacity="0.25"/>
-    <path d="M-20,110 C150,70 300,150 480,110 C660,70 800,140 1000,100" stroke="#1B6E82" stroke-width="1" fill="none" opacity="0.2"/>
-    <path d="M-20,160 C150,120 300,200 480,160 C660,120 800,190 1000,150" stroke="#1B6E82" stroke-width="1" fill="none" opacity="0.15"/>
-    <path d="M-20,210 C150,170 300,250 480,210 C660,170 800,240 1000,200" stroke="#C4872F" stroke-width="1" fill="none" opacity="0.15"/>
-    <path d="M-20,260 C150,220 300,300 480,260 C660,220 800,290 1000,250" stroke="#1B6E82" stroke-width="1" fill="none" opacity="0.1"/>
+  <svg class="hero-topo" viewBox="0 0 1040 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M-40,120 C120,60 260,180 420,120 C580,60 720,170 880,110 C960,80 1000,90 1080,70" stroke="#1D6B76" stroke-width="1" fill="none" opacity="0.16"/>
+    <path d="M-40,170 C120,110 260,230 420,170 C580,110 720,220 880,160 C960,130 1000,140 1080,120" stroke="#1D6B76" stroke-width="1" fill="none" opacity="0.14"/>
+    <path d="M-40,220 C120,160 260,280 420,220 C580,160 720,270 880,210 C960,180 1000,190 1080,170" stroke="#1D6B76" stroke-width="1" fill="none" opacity="0.12"/>
+    <path d="M-40,270 C120,210 260,330 420,270 C580,210 720,320 880,260 C960,230 1000,240 1080,220" stroke="#B4703A" stroke-width="1" fill="none" opacity="0.13"/>
+    <path d="M-40,320 C120,260 260,380 420,320 C580,260 720,370 880,310 C960,280 1000,290 1080,270" stroke="#1D6B76" stroke-width="1" fill="none" opacity="0.1"/>
+    <path d="M-40,370 C120,310 260,430 420,370 C580,310 720,420 880,360 C960,330 1000,340 1080,320" stroke="#1D6B76" stroke-width="1" fill="none" opacity="0.08"/>
+    <path d="M-40,420 C120,360 260,480 420,420 C580,360 720,470 880,410 C960,380 1000,390 1080,370" stroke="#B4703A" stroke-width="1" fill="none" opacity="0.07"/>
   </svg>
 
-  <div class="wrap">
-    <img src="photo.png" alt="Dominique Akpiti Hossou" class="photo">
-
-    <div>
-      <span class="eyebrow">Portfolio - 2026</span>
-      <h1 class="name">Dominique Akpiti HOSSOU</h1>
-      <p class="role">
-        Étudiant en Licence 2 - Hydrologie Quantitative et Gestion Intégrée
-        des Ressources en Eau à l'Institut National de l'Eau. Passionné par
-        le développement web et la cartographie (SIG).
-      </p>
-      <div class="coord-line">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-        Bénin - Porto-Novo / Dangbo / Djigbé
+  <div class="wrap hero-inner">
+    <div class="hero-grid">
+      <div>
+        <span class="label">Portfolio - 2026</span>
+        <h1 class="name">Dominique Akpiti Hossou</h1>
+        <p class="role">
+          Étudiant en Licence 2 - Hydrologie Quantitative et Gestion Intégrée
+          des Ressources en Eau à l'Institut National de l'Eau. Je relie
+          l'analyse des ressources en eau à la cartographie SIG et au
+          développement web.
+        </p>
+        <div class="hero-cta">
+          <a href="#projets" class="btn primary">Voir mes projets</a>
+          <a href="mailto:dominiquehossou0@gmail.com" class="btn ghost">Me contacter</a>
+        </div>
       </div>
-      <div class="hero-cta">
-        <a href="#projets" class="btn primary">Voir mes projets</a>
-        <a href="mailto:dominiquehossou0@gmail.com" class="btn ghost">Me contacter</a>
+
+      <div class="plate">
+        <img src="photo.png" alt="Dominique Akpiti Hossou" class="photo">
+        <div class="plate-row"><span class="k">Niveau</span><span class="v">Licence 2 - INE</span></div>
+        <div class="plate-row"><span class="k">Origine</span><span class="v">Porto-Novo · Dangbo · Djigbé</span></div>
+        <div class="plate-row"><span class="k">Pays</span><span class="v">Bénin</span></div>
       </div>
     </div>
   </div>
@@ -459,8 +540,10 @@
 
 <section id="about" class="reveal">
   <div class="wrap">
-    <span class="eyebrow">01 - Profil</span>
-    <h2 class="section-title">À propos</h2>
+    <div class="section-head">
+      <span class="label">Profil</span>
+      <h2 class="section-title">À propos</h2>
+    </div>
     <div class="about-grid">
       <div class="about-text">
         <p>
@@ -471,15 +554,14 @@
         </p>
         <p>
           En parallèle de mes études, je développe des compétences en
-          développement web (HTML, CSS, JavaScript, back-end et front-end)
+          développement web - HTML, CSS, JavaScript, back-end et front-end —
           et en cartographie via QGIS, que j'applique aussi bien à mes projets
           personnels qu'à des problématiques liées à l'eau.
         </p>
       </div>
       <div class="facts">
-        <div class="fact"><span class="k">Niveau actuel</span><span class="v">Licence 2 - INE</span></div>
-        <div class="fact"><span class="k">Origine</span><span class="v">Porto-Novo / Dangbo / Djigbé</span></div>
         <div class="fact"><span class="k">Langues</span><span class="v">Goun, Fon, Français, Anglais</span></div>
+        <div class="fact"><span class="k">Localisation</span><span class="v">Porto-Novo / Dangbo / Djigbé, Bénin</span></div>
         <div class="fact"><span class="k">Email</span><span class="v">dominiquehossou0@gmail.com</span></div>
       </div>
     </div>
@@ -488,39 +570,41 @@
 
 <section id="formation" class="tint reveal">
   <div class="wrap">
-    <span class="eyebrow">02 - Formation</span>
-    <h2 class="section-title">Parcours académique</h2>
-    <div class="timeline">
+    <div class="section-head">
+      <span class="label">Formation</span>
+      <h2 class="section-title">Parcours académique</h2>
+    </div>
+    <div class="river-timeline">
       <div class="tl-item">
-        <span class="tl-year">2025-2026</span>
+        <span class="tl-year">2025 -2026</span>
         <div class="tl-body">
           <h3>Licence 2 - Hydrologie Quantitative et Gestion Intégrée des Ressources en Eau</h3>
           <div class="place">Institut National de l'Eau</div>
         </div>
       </div>
       <div class="tl-item">
-        <span class="tl-year">2024-2025</span>
+        <span class="tl-year">2024 - 2025</span>
         <div class="tl-body">
           <h3>Licence 1 - Hydrologie Quantitative et Gestion Intégrée des Ressources en Eau</h3>
           <div class="place">Institut National de l'Eau</div>
         </div>
       </div>
       <div class="tl-item">
-        <span class="tl-year">2023-2024</span>
+        <span class="tl-year">2023 - 2024</span>
         <div class="tl-body">
-          <h3>Baccalauréat (BAC D)</h3>
+          <h3>Baccalauréat (série D)</h3>
           <div class="place">CEG Djigbé</div>
         </div>
       </div>
       <div class="tl-item">
-        <span class="tl-year">2020-2021</span>
+        <span class="tl-year">2020 - 2021</span>
         <div class="tl-body">
           <h3>Brevet d'Étude du Premier Cycle (BEPC)</h3>
           <div class="place">CEG Djigbé</div>
         </div>
       </div>
       <div class="tl-item">
-        <span class="tl-year">2016-2017</span>
+        <span class="tl-year">2016 - 2017</span>
         <div class="tl-body">
           <h3>Certificat d'Étude Primaire (CEP)</h3>
           <div class="place">CSP La Prospérité de Djigbé</div>
@@ -532,18 +616,20 @@
 
 <section id="experience" class="reveal">
   <div class="wrap">
-    <span class="eyebrow">03 - Expérience</span>
-    <h2 class="section-title">Stages</h2>
-    <div class="timeline">
+    <div class="section-head">
+      <span class="label">Expérience</span>
+      <h2 class="section-title">Stages</h2>
+    </div>
+    <div class="river-timeline">
       <div class="tl-item">
-        <span class="tl-year">2025-2026</span>
+        <span class="tl-year">2025 - 2026</span>
         <div class="tl-body">
           <h3>Stage académique</h3>
           <div class="place">Direction Départementale de l'Eau, de l'Énergie et des Mines de l'Ouémé</div>
         </div>
       </div>
       <div class="tl-item">
-        <span class="tl-year">2024-2025</span>
+        <span class="tl-year">2024 - 2025</span>
         <div class="tl-body">
           <h3>Stage académique</h3>
           <div class="place">Direction Départementale de l'Eau, de l'Énergie et des Mines de l'Ouémé</div>
@@ -555,31 +641,62 @@
 
 <section id="competences" class="tint reveal">
   <div class="wrap">
-    <span class="eyebrow">04 -Compétences</span>
-    <h2 class="section-title">Ce que je sais faire</h2>
+    <div class="section-head">
+      <span class="label">Compétences</span>
+      <h2 class="section-title">Ce que je sais faire</h2>
+    </div>
     <div class="skills-grid">
       <div class="skill-card">
-        <h3>Développement Web</h3>
-        <span class="sub">Front-end & Back-end</span>
-        <div class="skill-row">HTML <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div></div>
-        <div class="skill-row">CSS <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div></div>
-        <div class="skill-row">JavaScript <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div></div>
-        <div class="skill-row">Back-end <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div></div>
-        <div class="skill-row">R <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div></div>
-        <div class="skill-row">Python <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div></div>
-        <div class="skill-row">SQL <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div></div>
-        <div class="skill-row">Front-end <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div></div>
+        <h3>Développement web</h3>
+        <span class="sub">Front-end & back-end</span>
+        <div class="gauge">
+          <div class="gauge-top"><span class="glabel">HTML</span><span class="gval">avancé</span></div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:85%"></div></div>
+        </div>
+        <div class="gauge">
+          <div class="gauge-top"><span class="glabel">CSS</span><span class="gval">avancé</span></div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:85%"></div></div>
+        </div>
+        <div class="gauge">
+          <div class="gauge-top"><span class="glabel">JavaScript</span><span class="gval">intermédiaire</span></div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:60%"></div></div>
+        </div>
+        <div class="gauge">
+          <div class="gauge-top"><span class="glabel">Back-end</span><span class="gval">intermédiaire</span></div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:60%"></div></div>
+        </div>
+        <div class="gauge">
+          <div class="gauge-top"><span class="glabel">Python</span><span class="gval">intermédiaire</span></div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:60%"></div></div>
+        </div>
+        <div class="gauge">
+          <div class="gauge-top"><span class="glabel">R</span><span class="gval">intermédiaire</span></div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:60%"></div></div>
+        </div>
+        <div class="gauge">
+          <div class="gauge-top"><span class="glabel">SQL</span><span class="gval">intermédiaire</span></div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:60%"></div></div>
+        </div>
       </div>
       <div class="skill-card">
         <h3>Cartographie & SIG</h3>
         <span class="sub">Analyse spatiale</span>
-        <div class="skill-row">QGIS <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div></div>
-        <div class="skill-row">Cartographie thématique <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div></div>
-        <div class="skill-row">Analyse de bassins versants <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div>
+        <div class="gauge">
+          <div class="gauge-top"><span class="glabel">QGIS</span><span class="gval">avancé</span></div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:85%"></div></div>
+        </div>
+        <div class="gauge">
+          <div class="gauge-top"><span class="glabel">Cartographie thématique</span><span class="gval">intermédiaire</span></div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:60%"></div></div>
+        </div>
+        <div class="gauge">
+          <div class="gauge-top"><span class="glabel">Analyse de bassins versants</span><span class="gval">notions</span></div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:38%"></div></div>
+        </div>
       </div>
     </div>
 
-    <div class="side-grid" style="margin-top:24px;">
+    <div class="side-grid">
       <div class="tag-card">
         <h3>Langues</h3>
         <div class="tag-list">
@@ -603,52 +720,61 @@
 
 <section id="projets" class="reveal">
   <div class="wrap">
-    <span class="eyebrow">05 - Projets</span>
-    <h2 class="section-title">Ce que j'ai construit</h2>
-
-    <div class="project">
-      <div class="project-top">
-        <span class="project-name">EpreuveLab</span>
-        <span class="project-tag">plateforme web</span>
-      </div>
-      <p class="project-desc">
-        Plateforme conçue pour aider les étudiants à s'entraîner aux examens
-        en leur donnant accès à d'anciennes épreuves.
-      </p>
-      <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript/TypeScript avec le framework Next.js</span></div>
-      <a href="https://epreuvelab.vercel.app" target="_blank" rel="noopener" class="project-link">epreuvelab.vercel.app →</a>
+    <div class="section-head">
+      <span class="label">Projets</span>
+      <h2 class="section-title">Ce que j'ai construit</h2>
     </div>
 
     <div class="project">
-      <div class="project-top">
-        <span class="project-name">Hydrologie Quantitative</span>
-        <span class="project-tag">site personnel</span>
+      <div>
+        <span class="project-tag">Plateforme web</span>
+        <div class="project-name">EpreuveLab</div>
       </div>
-      <p class="project-desc">
-        Site que j'ai conçu autour de mon domaine d'étude.
-      </p>
-      <div class="stack"><span>HTML</span><span>CSS</span></div>
-      <a href="https://dominiquehossou0-dot.github.io/dominque-hossou/index.html" target="_blank" rel="noopener" class="project-link">voir le site →</a>
+      <div>
+        <p class="project-desc">
+          Plateforme conçue pour aider les étudiants à s'entraîner aux examens
+          en leur donnant accès à d'anciennes épreuves.
+        </p>
+        <div class="stack"><span>HTML</span><span>CSS</span><span>TypeScript</span><span>Next.js</span></div>
+        <a href="https://epreuvelab.vercel.app" target="_blank" rel="noopener" class="project-link">epreuvelab.vercel.app →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div>
+        <span class="project-tag">Site personnel</span>
+        <div class="project-name">Hydrologie Quantitative</div>
+      </div>
+      <div>
+        <p class="project-desc">
+          Site que j'ai conçu autour de mon domaine d'étude, pour présenter
+          les notions clés de l'hydrologie quantitative.
+        </p>
+        <div class="stack"><span>HTML</span><span>CSS</span></div>
+        <a href="https://dominiquehossou0-dot.github.io/dominque-hossou/index.html" target="_blank" rel="noopener" class="project-link">Voir le site →</a>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="attestations" class="tint reveal">
   <div class="wrap">
-    <span class="eyebrow">06 - Attestations</span>
-    <h2 class="section-title">Certifications & attestations</h2>
+    <div class="section-head">
+      <span class="label">Attestations</span>
+      <h2 class="section-title">Certifications</h2>
+    </div>
     <div class="cert-grid">
       <div class="cert-item">
         <img src="Att1.png" alt="Attestation Alphorm - HTML5, JavaScript et CSS3" class="cert-img">
         <div class="cert-caption">
-          <span class="cert-title">HTML5, JavaScript et CSS3 : Le Guide Complet</span>
-          <span class="cert-source">Alphorm — 20 mai 2026</span>
+          <span class="cert-title">HTML5, JavaScript et CSS3 : le guide complet</span>
+          <span class="cert-source">Alphorm - 20 mai 2026</span>
         </div>
       </div>
       <div class="cert-item">
         <img src="Att3.png" alt="UQAM - Création Web HTML/CSS" class="cert-img">
         <div class="cert-caption">
-          <span class="cert-title">Création Web HTML/CSS</span>
+          <span class="cert-title">Création web HTML/CSS</span>
           <span class="cert-source">UQAM - 15 et 22 mars 2026</span>
         </div>
       </div>
@@ -656,7 +782,7 @@
         <img src="Att2.png" alt="Certificat Innov_agroe - Initiation aux outils SIG et télédétection" class="cert-img">
         <div class="cert-caption">
           <span class="cert-title">Initiation aux outils SIG et télédétection</span>
-          <span class="cert-source">Innov_agroe — 16 au 18 juillet 2025</span>
+          <span class="cert-source">Innov_agroe -16 au 18 juillet 2025</span>
         </div>
       </div>
     </div>
@@ -665,13 +791,14 @@
 
 <section id="contact" class="reveal">
   <div class="wrap">
-    <span class="eyebrow">07 - Contact</span>
-    <h2 class="contact-cta">Un projet en hydrologie, en SIG ou en web ? Écrivons-en.</h2>
-    <div class="contact-list">
-      <a href="mailto:dominiquehossou0@gmail.com"><span class="k">Email</span> dominiquehossou0@gmail.com</a>
-      <span><span class="k">Localisation:</span> Porto-Novo /Dangbo /Djigbé, Bénin</span>
-      <span><span class="k">WhatsApp </span> 0165213211</span>
-      <a href="https://www.linkedin.com/in/akpiti-dominique-hossou-735375390"><span class="k">Linkedln </span> Akpiti Dominique HOSSOU</a>
+    <div class="contact-grid">
+      <h2 class="contact-cta">Un projet en hydrologie, en SIG ou en web ? Écrivons-en.</h2>
+      <div class="contact-list">
+        <a href="mailto:dominiquehossou0@gmail.com"><span class="k">Email</span> dominiquehossou0@gmail.com</a>
+        <div class="row"><span class="k">WhatsApp</span> 01 65 21 32 11</div>
+        <a href="https://www.linkedin.com/in/akpiti-dominique-hossou-735375390" target="_blank" rel="noopener"><span class="k">LinkedIn</span> Akpiti Dominique Hossou</a>
+        <div class="row"><span class="k">Localisation</span> Porto-Novo / Dangbo / Djigbé, Bénin</div>
+      </div>
     </div>
   </div>
 </section>
