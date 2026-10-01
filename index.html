@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dominique Akpiti HOSSOU</title>
-<meta name="description" content="Dominique Akpiti HOSSOU">
+<title>Dominique Akpiti Hossou | Hydrologie quantitative, SIG et développement web</title>
+<meta name="description" content="Portfolio de Dominique Akpiti Hossou, étudiant en Licence 3 d'Hydrologie Quantitative et Gestion Intégrée des Ressources en Eau (Institut National de l'Eau, Bénin). Compétences en SIG et développement web.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -471,6 +471,84 @@
   }
 
   @media (max-width: 720px){ .contact-grid{ grid-template-columns: 1fr; } }
+
+  /* ---------- Refonte design ---------- */
+  :root{ --paper:#F1ECDF; --paper-2:#E8E0CC; --card:#FBF8EF; --accent:#B5651D; }
+  body{ font-size:18px; line-height:1.75; }
+  .label,.fact .k,.plate-row .k,.project-tag,.skill-card .sub,.contact-list .k{
+    text-transform:none; letter-spacing:.01em; font-family:'Times New Roman',Times,serif; font-style:italic; font-size:.92rem;
+  }
+  .label{ color:var(--clay); display:block; }
+  .reveal{ opacity:1; transform:none; transition:none; }
+  nav{ background:rgba(241,236,223,.94); }
+  nav .wrap{ padding:14px 32px; }
+  .nav-links a{ font-family:'Times New Roman',Times,serif; font-size:.95rem; letter-spacing:0; }
+  header.hero{ background:linear-gradient(180deg,rgba(36,70,58,.07),transparent 70%); }
+  .hero-inner{ padding-top:104px; padding-bottom:88px; }
+  h1.name{ font-size:clamp(2.8rem,6.4vw,4.6rem); line-height:1; max-width:11ch; color:var(--teal-deep); margin-top:10px; }
+  .role{ font-size:1.18rem; max-width:50ch; border-left:3px solid var(--clay); padding-left:18px; margin-top:26px; }
+  .btn{ font-family:'Times New Roman',Times,serif; font-size:1rem; border-radius:var(--radius); padding:13px 26px; }
+  .plate{ box-shadow:10px 10px 0 var(--paper-2); border-color:var(--teal-deep); }
+  .plate-row .k{ font-size:.85rem; }
+  section{ padding:96px 0; }
+  .section-head{ margin-bottom:48px; }
+  .section-title{ font-size:2.3rem; font-weight:700; color:var(--teal-deep); border-bottom:2px solid var(--clay); display:inline-block; padding-bottom:8px; margin-top:12px; }
+  .about-text p::first-letter{ all:unset; }
+  .about-text p{ font-size:1.05rem; }
+  .facts{ border-left-width:3px; }
+  .fact .v{ font-size:1.02rem; }
+  .tl-body h3{ font-size:1.15rem; }
+  .tl-year{ font-family:'Times New Roman',Times,serif; font-weight:700; font-size:1rem; }
+  .tl-body .place{ font-family:'Times New Roman',Times,serif; font-style:italic; font-size:1rem; }
+  .missions{ margin:12px 0 0; padding:14px 18px 14px 36px; background:var(--card); border:1px solid var(--line); border-left:3px solid var(--teal); font-size:.98rem; color:var(--ink-soft); line-height:1.6; }
+  .missions li{ margin-bottom:5px; } .missions li:last-child{ margin-bottom:0; }
+  .skill-card{ border-top:3px solid var(--teal-deep); }
+  .skill-card h3{ font-size:1.25rem; }
+  .gauge-top .glabel{ font-size:1rem; } .gauge-top .gval{ font-family:'Times New Roman',Times,serif; font-style:italic; font-size:.9rem; }
+  .gauge-track{ height:6px; } .gauge-fill{ background:linear-gradient(90deg,var(--teal-deep),var(--teal)); }
+  .tag-list span{ font-family:'Times New Roman',Times,serif; font-size:.98rem; border-radius:var(--radius); }
+  .stack span{ font-family:'Times New Roman',Times,serif; font-size:.9rem; }
+  .project{ grid-template-columns:240px 1fr; }
+  .project-name{ font-size:1.7rem; color:var(--teal-deep); }
+  .project-desc{ font-size:1.05rem; }
+  .project-link{ font-family:'Times New Roman',Times,serif; font-size:1rem; font-weight:700; }
+  .cert-item:hover{ box-shadow:none; }
+  .cert-title{ font-size:1rem; font-weight:700; } .cert-source{ font-family:'Times New Roman',Times,serif; font-style:italic; font-size:.92rem; }
+  #contact{ background:var(--teal-deep); color:var(--paper); }
+  #contact .contact-cta{ color:#fff; font-size:2.2rem; max-width:22ch; }
+  #contact .contact-list a,#contact .contact-list .row{ font-family:'Times New Roman',Times,serif; font-size:1.1rem; border-color:rgba(255,255,255,.25); color:var(--paper); }
+  #contact .contact-list .k{ color:var(--clay-soft); }
+  #contact .contact-list a:hover{ color:#fff; }
+  footer{ font-family:'Times New Roman',Times,serif; font-size:.95rem; }
+
+  /* ---------- Ajustements mobile ---------- */
+  html,body{ overflow-x:hidden; }
+  .hero-grid>*,.about-grid>*,.contact-grid>*,.project>*{ min-width:0; }
+  h1.name,.role,.place,.contact-list a,.contact-list .row{ overflow-wrap:anywhere; }
+  @media (max-width:640px){
+    body{ font-size:17px; }
+    .wrap{ padding:0 20px; } nav .wrap{ padding:12px 20px; }
+    .hero-inner{ padding-top:64px; padding-bottom:56px; }
+    h1.name{ font-size:2.6rem; max-width:none; }
+    .plate{ max-width:240px; box-shadow:6px 6px 0 var(--paper-2); }
+    section{ padding:64px 0; }
+    .section-title{ font-size:1.8rem; }
+    .contact-list a,.contact-list .row{ flex-direction:column; gap:2px; }
+    #contact .contact-cta{ font-size:1.7rem; }
+    .project{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Cartes ---------- */
+  .map-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .map-item{ margin:0; background:var(--card); border:1px solid var(--line); border-top:3px solid var(--teal-deep); }
+  .map-frame{ display:block; aspect-ratio:4/3; background:var(--paper-2); position:relative; overflow:hidden; }
+  .map-frame img{ width:100%; height:100%; object-fit:cover; transition:transform .3s ease; }
+  .map-frame:hover img{ transform:scale(1.04); }
+  .map-frame.empty{ display:flex; align-items:center; justify-content:center; border-bottom:1px dashed var(--line); font-style:italic; color:var(--meta); }
+  .map-item figcaption{ padding:16px 20px; font-weight:700; font-size:1.05rem; color:var(--ink); }
+  .map-note{ margin-top:22px; color:var(--meta); font-style:italic; font-size:.95rem; }
+  @media (max-width:640px){ .map-grid{ grid-template-columns:1fr; } }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--clay); outline-offset:3px; }
 </style>
 </head>
 <body>
@@ -501,6 +579,7 @@
       <a href="#formation">Formation</a>
       <a href="#experience">Expérience</a>
       <a href="#competences">Compétences</a>
+      <a href="#cartes">Cartes</a>
       <a href="#projets">Projets</a>
       <a href="#attestations">Attestations</a>
       <a href="#contact">Contact</a>
@@ -522,24 +601,24 @@
   <div class="wrap hero-inner">
     <div class="hero-grid">
       <div>
-        <span class="label">Portfolio</span>
+        <span class="label">Portfolio professionnel</span>
         <h1 class="name">Dominique Akpiti Hossou</h1>
         <p class="role">
-          Étudiant en Licence 2 - Hydrologie Quantitative et Gestion Intégrée
-          des Ressources en Eau à l'Institut National de l'Eau. Je relie
-          l'analyse des ressources en eau à la cartographie SIG et au
-          développement web.
+          Étudiant en Licence 3 d'Hydrologie Quantitative et Gestion Intégrée
+          des Ressources en Eau à l'Institut National de l'Eau (Bénin).
+          J'associe l'analyse des ressources en eau, la cartographie SIG
+          et le développement web.
         </p>
         <div class="hero-cta">
-          <a href="#projets" class="btn primary">Voir mes projets</a>
+          <a href="#projets" class="btn primary">Consulter mes réalisations</a>
           <a href="mailto:dominiquehossou0@gmail.com" class="btn ghost">Me contacter</a>
         </div>
       </div>
 
       <div class="plate">
         <img src="photo.png" alt="Dominique Akpiti Hossou" class="photo">
-        <div class="plate-row"><span class="k">Niveau</span><span class="v">Licence 2 - INE</span></div>
-        <div class="plate-row"><span class="k">Origine</span><span class="v">Porto-Novo · Dangbo · Djigbé</span></div>
+        <div class="plate-row"><span class="k">Niveau</span><span class="v">Licence 3 - INE</span></div>
+        <div class="plate-row"><span class="k">Localisation</span><span class="v">Porto-Novo, Dangbo, Djigbé</span></div>
         <div class="plate-row"><span class="k">Pays</span><span class="v">Bénin</span></div>
       </div>
     </div>
@@ -550,26 +629,26 @@
   <div class="wrap">
     <div class="section-head">
       <span class="label">Profil</span>
-      <h2 class="section-title">À propos</h2>
+      <h2 class="section-title">Présentation</h2>
     </div>
     <div class="about-grid">
       <div class="about-text">
         <p>
-          Je suis étudiant en deuxième année de Licence en Hydrologie Quantitative
-          et Gestion Intégrée des Ressources en Eau à l'Institut National de l'Eau,
-          au Bénin. Je m'intéresse particulièrement à la gestion durable des
-          ressources en eau et à l'analyse spatiale des bassins versants.
+          Étudiant en troisième année de Licence en Hydrologie Quantitative et
+          Gestion Intégrée des Ressources en Eau à l'Institut National de l'Eau
+          (Bénin), je m'intéresse à la gestion durable des ressources en eau
+          et à l'analyse spatiale des bassins versants.
         </p>
         <p>
-          En parallèle de mes études, je développe des compétences en
-          développement web - HTML, CSS, JavaScript, back-end et front-end -
-          et en cartographie via QGIS, que j'applique aussi bien à mes projets
-          personnels qu'à des problématiques liées à l'eau.
+          Parallèlement à ma formation, j'ai développé des compétences en
+          développement web (front-end et back-end), en programmation et en
+          cartographie avec QGIS. Je les mets au service de projets
+          personnels comme de problématiques liées à l'eau.
         </p>
       </div>
       <div class="facts">
-        <div class="fact"><span class="k">Langues</span><span class="v">Goun, Fon, Français, Anglais</span></div>
-        <div class="fact"><span class="k">Localisation</span><span class="v">Porto-Novo / Dangbo / Djigbé, Bénin</span></div>
+        <div class="fact"><span class="k">Langues</span><span class="v">Français, Anglais, Fon, Goun</span></div>
+        <div class="fact"><span class="k">Localisation</span><span class="v">Porto-Novo, Dangbo, Djigbé (Bénin)</span></div>
         <div class="fact"><span class="k">Email</span><span class="v">dominiquehossou0@gmail.com</span></div>
       </div>
     </div>
@@ -583,6 +662,13 @@
       <h2 class="section-title">Parcours académique</h2>
     </div>
     <div class="river-timeline">
+      <div class="tl-item">
+        <span class="tl-year">2026 - 2027</span>
+        <div class="tl-body">
+          <h3>Licence 3 - Hydrologie Quantitative et Gestion Intégrée des Ressources en Eau</h3>
+          <div class="place">Institut National de l'Eau</div>
+        </div>
+      </div>
       <div class="tl-item">
         <span class="tl-year">2025 - 2026</span>
         <div class="tl-body">
@@ -626,21 +712,40 @@
   <div class="wrap">
     <div class="section-head">
       <span class="label">Expérience</span>
-      <h2 class="section-title">Stages</h2>
+      <h2 class="section-title">Stages et expériences</h2>
     </div>
     <div class="river-timeline">
       <div class="tl-item">
         <span class="tl-year">2025 - 2026</span>
         <div class="tl-body">
-          <h3>Stage académique</h3>
+          <h3>Moniteur</h3>
+          <div class="place">Département Hydrologie et Gestion des Ressources en Eau (HGRE), Institut National de l'Eau (INE), Université d'Abomey-Calavi (UAC)</div>
+          <ul class="missions">
+            <li>Encadrement des étudiants de première année du département</li>
+            <li>Animation de travaux dirigés (TD) en : Analyse (suites et séries numériques), Outils mathématiques pour la physique (OMP), Thermodynamique et Algèbre linéaire</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">2025 - 2026</span>
+        <div class="tl-body">
+          <h3>Stagiaire - stage académique</h3>
           <div class="place">Direction Départementale de l'Eau, de l'Énergie et des Mines de l'Ouémé</div>
+          <ul class="missions">
+            <li>Traitement de données</li>
+            <li>Réalisation de cartes : topographique, hydrographique, géographique, hydrogéologique</li>
+          </ul>
         </div>
       </div>
       <div class="tl-item">
         <span class="tl-year">2024 - 2025</span>
         <div class="tl-body">
-          <h3>Stage académique</h3>
+          <h3>Stagiaire - stage académique</h3>
           <div class="place">Direction Départementale de l'Eau, de l'Énergie et des Mines de l'Ouémé</div>
+          <ul class="missions">
+            <li>Traitement de données</li>
+            <li>Réalisation de cartes : topographique, hydrographique, géographique, hydrogéologique</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -651,12 +756,12 @@
   <div class="wrap">
     <div class="section-head">
       <span class="label">Compétences</span>
-      <h2 class="section-title">Ce que je sais faire</h2>
+      <h2 class="section-title">Domaines de compétences</h2>
     </div>
     <div class="skills-grid">
       <div class="skill-card">
         <h3>Développement web</h3>
-        <span class="sub">Front-end & back-end</span>
+        <span class="sub">Front-end, back-end et analyse de données</span>
         <div class="gauge">
           <div class="gauge-top"><span class="glabel">HTML</span><span class="gval">avancé</span></div>
           <div class="gauge-track"><div class="gauge-fill" style="width:85%"></div></div>
@@ -698,7 +803,7 @@
           <div class="gauge-track"><div class="gauge-fill" style="width:60%"></div></div>
         </div>
         <div class="gauge">
-          <div class="gauge-top"><span class="glabel">Analyse de bassins versants</span><span class="gval">notions</span></div>
+          <div class="gauge-top"><span class="glabel">Analyse de bassins versants</span><span class="gval">bases</span></div>
           <div class="gauge-track"><div class="gauge-fill" style="width:38%"></div></div>
         </div>
       </div>
@@ -706,12 +811,12 @@
 
     <div class="side-grid">
       <div class="tag-card">
-        <h3>Langues</h3>
+        <h3>Langues parlées</h3>
         <div class="tag-list">
-          <span>Goun</span>
-          <span>Fon</span>
           <span>Français</span>
           <span>Anglais</span>
+          <span>Fon</span>
+          <span>Goun</span>
         </div>
       </div>
       <div class="tag-card">
@@ -726,11 +831,47 @@
   </div>
 </section>
 
-<section id="projets" class="reveal">
+<section id="cartes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Cartographie</span>
+      <h2 class="section-title">Cartes réalisées</h2>
+    </div>
+    <div class="map-grid">
+      <figure class="map-item">
+        <a class="map-frame" href="carte-pedologique.png" target="_blank" rel="noopener" aria-label="Agrandir : Carte topographique">
+          <img src="carte-pedologique.png" alt="Carte pedologique" loading="lazy" onerror="this.parentNode.classList.add('empty');this.replaceWith('Carte à ajouter')">
+        </a>
+        <figcaption>Carte pedologique</figcaption>
+      </figure>
+      <figure class="map-item">
+        <a class="map-frame" href="carte-hydrographique.png" target="_blank" rel="noopener" aria-label="Agrandir : Carte hydrographique">
+          <img src="carte-hydrographique.png" alt="Carte hydrographique" loading="lazy" onerror="this.parentNode.classList.add('empty');this.replaceWith('Carte à ajouter')">
+        </a>
+        <figcaption>Carte hydrographique</figcaption>
+      </figure>
+      <figure class="map-item">
+        <a class="map-frame" href="carte-geographique.png" target="_blank" rel="noopener" aria-label="Agrandir : Carte géographique">
+          <img src="carte-geographique.png" alt="Carte géographique" loading="lazy" onerror="this.parentNode.classList.add('empty');this.replaceWith('Carte à ajouter')">
+        </a>
+        <figcaption>Carte géographique</figcaption>
+      </figure>
+      <figure class="map-item">
+        <a class="map-frame" href="carte-hydrogeologique.png" target="_blank" rel="noopener" aria-label="Agrandir : Carte hydrogéologique">
+          <img src="carte-hydrogeologique.png" alt="Carte hydrogéologique" loading="lazy" onerror="this.parentNode.classList.add('empty');this.replaceWith('Carte à ajouter')">
+        </a>
+        <figcaption>Carte hydrogéologique</figcaption>
+      </figure>
+    </div>
+    <p class="map-note">Cartes réalisées dans le cadre de mes stages à la Direction Départementale de l'Eau, de l'Énergie et des Mines de l'Ouémé. Cliquer sur une carte pour l'agrandir.</p>
+  </div>
+</section>
+
+<section id="projets" class="tint reveal">
   <div class="wrap">
     <div class="section-head">
       <span class="label">Projets</span>
-      <h2 class="section-title">Ce que j'ai construit</h2>
+      <h2 class="section-title">Réalisations</h2>
     </div>
 
     <div class="project">
@@ -740,36 +881,36 @@
       </div>
       <div>
         <p class="project-desc">
-          Plateforme conçue pour aider les étudiants à s'entraîner aux examens
-          en leur donnant accès à d'anciennes épreuves.
+          Plateforme web destinée aux étudiants, qui met à disposition
+          d'anciennes épreuves d'examen pour faciliter leur préparation.
         </p>
         <div class="stack"><span>HTML</span><span>CSS</span><span>TypeScript</span><span>Next.js</span></div>
-        <a href="https://epreuvelab.vercel.app" target="_blank" rel="noopener" class="project-link">epreuvelab.vercel.app →</a>
+        <a href="https://epreuvelab.vercel.app" target="_blank" rel="noopener" class="project-link">Consulter epreuvelab.vercel.app</a>
       </div>
     </div>
 
     <div class="project">
       <div>
-        <span class="project-tag">Site personnel</span>
+        <span class="project-tag">Site de présentation</span>
         <div class="project-name">Hydrologie Quantitative</div>
       </div>
       <div>
         <p class="project-desc">
-          Site que j'ai conçu autour de mon domaine d'étude, pour présenter
-          les notions clés de l'hydrologie quantitative.
+          Site web consacré à mon domaine d'étude, présentant les notions
+          fondamentales de l'hydrologie quantitative.
         </p>
         <div class="stack"><span>HTML</span><span>CSS</span></div>
-        <a href="https://dominiquehossou0-dot.github.io/dominque-hossou/index.html" target="_blank" rel="noopener" class="project-link">Voir le site →</a>
+        <a href="https://dominiquehossou0-dot.github.io/dominque-hossou/index.html" target="_blank" rel="noopener" class="project-link">Consulter le site</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="attestations" class="tint reveal">
+<section id="attestations" class="reveal">
   <div class="wrap">
     <div class="section-head">
       <span class="label">Attestations</span>
-      <h2 class="section-title">Certifications</h2>
+      <h2 class="section-title">Attestations et certifications</h2>
     </div>
     <div class="cert-grid">
       <div class="cert-item">
@@ -800,12 +941,12 @@
 <section id="contact" class="reveal">
   <div class="wrap">
     <div class="contact-grid">
-      <h2 class="contact-cta">Un projet en hydrologie, en SIG ou en web ? Écrivons-en.</h2>
+      <h2 class="contact-cta">Disponible pour échanger sur vos projets en hydrologie, SIG et développement web.</h2>
       <div class="contact-list">
         <a href="mailto:dominiquehossou0@gmail.com"><span class="k">Email</span> dominiquehossou0@gmail.com</a>
-        <div class="row"><span class="k">WhatsApp</span> 01 65 21 32 11</div>
+        <div class="row"><span class="k">WhatsApp</span> +229 01 65 21 32 11</div>
         <a href="https://www.linkedin.com/in/akpiti-dominique-hossou-735375390" target="_blank" rel="noopener"><span class="k">LinkedIn</span> Akpiti Dominique Hossou</a>
-        <div class="row"><span class="k">Localisation</span> Porto-Novo / Dangbo / Djigbé, Bénin</div>
+        <div class="row"><span class="k">Localisation</span> Porto-Novo, Bénin</div>
       </div>
     </div>
   </div>
